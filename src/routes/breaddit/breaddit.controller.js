@@ -2,7 +2,7 @@ const fs = require("fs");
 const { promisify } = require("util");
 const { validationResult } = require("express-validator");
 
-const breadditsData = require("../../../db/breaddits-copy.data.json");
+const breadditsData = require("../../../db/dummy.data.json");
 const data = breadditsData.breaddits;
 
 const writeFile = promisify(fs.writeFile);

@@ -14,10 +14,10 @@ const router = express.Router();
 router.route('')
   .get(listBreaddits)
   .post([
-    check("title").not().isEmpty().trim().escape(),
-    check("id").isNumeric(),
+    check("title").not().isEmpty().trim().escape().withMessage("Needs a title"),
+    check("id").isNumeric().withMessage("Needs to be a number"),
     check("text").trim().escape(),
-    check("score").isNumeric(),
+    check("score").isNumeric().withMessage("Needs to be a number"),
     check("author").trim().escape()
   ], createBreaddit);
 

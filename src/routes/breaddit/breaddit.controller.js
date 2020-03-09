@@ -13,7 +13,7 @@ const listBreaddits = (req, res) => {
   });
 };
 
-const postBreaddit = async (req, res) => {
+const createBreaddit = async (req, res) => {
   // console.log('body', req.body)
   const id = data.length + 100;
   const errors = validationResult(req);
@@ -97,7 +97,7 @@ const updateBreaddit = async (req, res) => {
 
 module.exports = {
   listBreaddits,
-  postBreaddit,
+  createBreaddit,
   getBreaddit,
   deleteBreaddit,
   updateBreaddit

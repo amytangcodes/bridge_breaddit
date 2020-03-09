@@ -3,7 +3,7 @@ const { check } = require("express-validator");
 
 const {
   listBreaddits,
-  postBreaddit,
+  createBreaddit,
   getBreaddit,
   deleteBreaddit,
   updateBreaddit
@@ -11,21 +11,20 @@ const {
 
 const router = express.Router();
 
-router.get('', listBreaddits);
-router.post(
-  '',
-  [
+router.route('')
+  .get(listBreaddits)
+  .post([
     check("title").not().isEmpty().trim().escape(),
     check("id").isNumeric(),
     check("text").trim().escape(),
     check("score").isNumeric(),
     check("author").trim().escape()
-  ],
-  postBreaddit
-);
-router.get('/:id', getBreaddit);
-router.delete('/:id', deleteBreaddit);
-router.put('/:id', updateBreaddit)
+  ], createBreaddit);
+
+router.route('/:id')
+  .get(getBreaddit)
+  .delete(deleteBreaddit)
+  .put(updateBreaddit);
 
 module.exports = {
   breadRouter: router

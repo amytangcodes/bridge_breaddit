@@ -24,14 +24,13 @@ const createBreaddit = async (req, res) => {
     breaddits: [...data, { id, ...req.body }]
   };
 
-  await writeFile("db/breaddits-copy.data.json", JSON.stringify(newData));
+  await writeFile("db/dummy.data.json", JSON.stringify(newData));
   return res.status(201).json({
     id,
     ...req.body
   });
 }
 
-// GET show id
 const getBreaddit = async (req, res) => {
   const { id } = req.params;
   const getBreadditById = data.find(breaddit => breaddit.id == id);
@@ -47,7 +46,6 @@ const getBreaddit = async (req, res) => {
   }
 };
 
-// DELETE a specific breaddit
 const deleteBreaddit = async (req, res) => {
   let { id } = req.params;
   const getBreadditById = data.find(breaddit => breaddit.id == id);
@@ -59,7 +57,7 @@ const deleteBreaddit = async (req, res) => {
     const updatedData = {
       breaddits: newData
     }
-    await writeFile("db/breaddits-copy.data.json", JSON.stringify(updatedData));
+    await writeFile("db/dummy.data.json", JSON.stringify(updatedData));
     res.status(200).json({
       message: "Breaddit successfully deleted!",
       data: newData
@@ -71,7 +69,6 @@ const deleteBreaddit = async (req, res) => {
   }
 }
 
-// PUT - update a breaddit
 const updateBreaddit = async (req, res) => {
   const { id } = req.params;
   const getBreadditById = data.find(breaddit => breaddit.id == id);
@@ -82,13 +79,13 @@ const updateBreaddit = async (req, res) => {
     const newData = {
       breaddits: [...data]
     }
-    await writeFile("db/breaddits-copy.data.json", JSON.stringify(newData));
+    await writeFile("db/dummy.data.json", JSON.stringify(newData));
     return res.status(201).json({
       message: "Successfully updated!",
       updateBreaddit: getBreadditById
     })
   } else {
-    res.status(400).json({
+    res.status(404).json({
       error: "Breaddit cannot be updated."
     })
   }

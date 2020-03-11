@@ -14,7 +14,6 @@ const listBreaddits = (req, res) => {
 };
 
 const createBreaddit = async (req, res) => {
-  // console.log('body', req.body)
   const id = data.length + 100;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -72,7 +71,7 @@ const deleteBreaddit = async (req, res) => {
   }
 }
 
-// PATCH - update a breaddit
+// PUT - update a breaddit
 const updateBreaddit = async (req, res) => {
   const { id } = req.params;
   const getBreadditById = data.find(breaddit => breaddit.id == id);

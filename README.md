@@ -1,57 +1,18 @@
 ## Installation
 
-Install Docker Compose:
-https://docs.docker.com/compose/install/
-
-Build the app and run it:
-
 ```sh
+$ git clone git@github.com:amytangcodes/bridge_breaddit.git
 $ yarn
-$ docker-compose up --build
 ```
 
 You should only need to do this the first time.
 
 ## Run the app locally
 
-You should only have to build with docker compose the first time you install the app, if you add new dependencies or if the Dockerfile configuration changes. Once you've built it you should be able to run the app locally using:
-
-```sh
-$ docker-compose up
 ```
-
-## Run the app in production
-
-```
+$ cd /path/to/bridge_breddit
 $ yarn dev
 ```
-
-## Database
-
-To create a new migration
-
-```sh
-$ npm run db:migrate:create -- <migration_name>
-```
-
-To run a migration
-
-```sh
-$ npm run db:migrate:latest
-```
-
-To rollback a migration
-
-```sh
-$ npm run db:migrate:rollback
-```
-
-To seed the database
-
-```sh
-$ npm run db:seed
-```
-
 ## Middleware
 
 Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle.

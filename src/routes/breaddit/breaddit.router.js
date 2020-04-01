@@ -18,7 +18,7 @@ router.route('')
 router.route('/:id')
   .get(getBreaddit)
   .delete(deleteBreaddit)
-  .put(breadditValidationRules(), validate, updateBreaddit);
+  .put(updateBreaddit);
 
 module.exports = {
   breadRouter: router

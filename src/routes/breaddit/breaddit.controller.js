@@ -74,7 +74,6 @@ const updateBreaddit = async (req, res) => {
   const getBreadditById = data.find(breaddit => breaddit.id == id);
   if (getBreadditById) {
     (getBreadditById.title = req.body.title), (getBreadditById.description = req.body.description);
-    console.log({ getBreadditById });
 
     const newData = {
       breaddits: [...data]

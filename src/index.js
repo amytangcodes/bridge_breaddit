@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const { handleError } = require('./middleware/error-handler');
 
 const router = require("./api");
 const { logger } = require("./utils/logger");
@@ -15,7 +16,9 @@ logger.info("🤖 Initializing middleware");
 
 app.use(morgan("tiny", { stream: logger.stream }));
 app.use("/", router);
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+  handleError(err, res);
+});
 
 // Serve the application at the given port
 app.listen(port, () => {

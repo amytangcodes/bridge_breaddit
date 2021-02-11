@@ -1,0 +1,87 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Breaddit",
+    "description": "A simple API to learn how to write OpenAPI Specification"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "simple.api",
+  "basePath": "/breaddits",
+  "paths": {
+    "/breaddits": {
+      "get": {
+        "summary": "Gets a list of breaddits",
+        "description": "Returns a list containing all breaddits.",
+        "responses": {
+          "200": {
+            "description": "A list of Breaddits",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  },
+                  "image": {
+                    "type": "link"
+                  },
+                  "id": {
+                    "type": "number"
+                  },
+                  "author": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breaddits/:id": {
+      "get": {
+        "summary": "Gets a breaddit by id",
+        "description": "Returns a breaddits based on id parameter",
+        "responses": {
+          "200": {
+            "description": "Breaddit by Id",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  },
+                  "image": {
+                    "type": "link"
+                  },
+                  "id": {
+                    "type": "number"
+                  },
+                  "author": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
